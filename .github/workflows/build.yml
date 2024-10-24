@@ -20,11 +20,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Get the release version
+      - name: Fetch latest release version
+        id: fetch-latest-release
+        uses: reloc8/action-latest-release-version@1.0.0
+
+      - name: Set the release version
         # i.e.: release/1.0.0 -> 1.0.0
         id: strip-branch-name
         run: |
-          release_version=$(echo "${{ github.ref }}" | sed 's/refs\/heads\/.*\///')
+          release_version=$(echo "${{ steps.fetch-latest-release.outputs.latest-release }}"')
           echo "Building release version $release_version"
           echo "RELEASE_VERSION=$release_version" >> $GITHUB_ENV
 
