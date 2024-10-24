@@ -22,6 +22,8 @@ jobs:
 
       - id: last_release
         uses: InsonusK/get-latest-release@v1.0.1
+        with:
+          myToken: ${{ github.token }}
 
       - name: Set the release version
         # i.e.: release/1.0.0 -> 1.0.0
