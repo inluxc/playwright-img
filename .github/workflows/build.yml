@@ -10,7 +10,7 @@ on:
 
 env:
   DOCKER_IMAGE_NAME: inluxc/playwright-img
-  DOCKER_REGISTRY_URL: hub.docker.com
+  DOCKER_REGISTRY_URL: docker.io
 
 jobs:
   build_docker_images:
