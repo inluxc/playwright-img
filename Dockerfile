@@ -1,9 +1,9 @@
 # Use the existing Playwright image as the base
-FROM mcr.microsoft.com/playwright:v1.46.0-jammy
+FROM mcr.microsoft.com/playwright:v1.48.1-noble
 
 # Install necessary dependencies
 RUN apt-get update && \
-    apt-get install -y curl unzip && \
+    apt-get install -y curl unzip jq && \
     rm -rf /var/lib/apt/lists/*
 
 # Download and install the AWS CLI
