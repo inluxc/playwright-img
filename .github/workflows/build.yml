@@ -20,14 +20,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - id: latestRelease
-        uses: pozetroninc/github-action-get-latest-release@master
+      - id: last_release
+        uses: InsonusK/get-latest-release@v1.0.1
 
       - name: Set the release version
         # i.e.: release/1.0.0 -> 1.0.0
         id: strip-branch-name
         run: |
-          release_version=${{ steps.latestRelease.outputs.release }}
+          release_version=${{ steps.last_release.outputs.tag_name}}
           echo "Building release version $release_version"
           echo "RELEASE_VERSION=$release_version" >> $GITHUB_ENV
 
